@@ -1,0 +1,57 @@
+export const ENDPOINTS = {
+  AUTH: {
+    REGISTER: '/auth/register',
+    LOGIN: '/auth/login',
+    REFRESH: '/auth/refresh',
+    LOGOUT: '/auth/logout',
+    ME: '/auth/me',
+    CHANGE_PASSWORD: '/auth/change-password',
+    UPDATE_PREFERENCES: '/auth/preferences',
+  },
+  MEETINGS: {
+    LIST: '/meetings',
+    CREATE: '/meetings',
+    GET: (id) => `/meetings/${id}`,
+    UPDATE: (id) => `/meetings/${id}`,
+    DELETE: (id) => `/meetings/${id}`,
+    TOKEN: (id) => `/meetings/${id}/token`,
+    ANALYZE: (id) => `/meetings/${id}/analyze`,
+    ROOM_INFO: (id) => `/meetings/${id}/room-info`,
+  },
+  TRANSCRIPTS: {
+    GET: (meetingId) => `/transcripts/${meetingId}`,
+    CREATE: (meetingId) => `/transcripts/${meetingId}`,
+    DELETE: (meetingId) => `/transcripts/${meetingId}`,
+  },
+  AI: {
+    SUMMARIZE: (meetingId) => `/ai/meetings/${meetingId}/summarize`,
+    EXTRACT_ACTIONS: (meetingId) => `/ai/meetings/${meetingId}/extract-actions`,
+    INSIGHTS: (meetingId) => `/ai/meetings/${meetingId}/insights`,
+    ANALYZE_ALL: (meetingId) => `/ai/meetings/${meetingId}/analyze`,
+    GET_INSIGHTS: (meetingId) => `/ai/meetings/${meetingId}/insights`,
+    GET_SUMMARY: (meetingId) => `/ai/meetings/${meetingId}/summary`,
+  },
+  ACTION_ITEMS: {
+    LIST: '/action-items',
+    CREATE: '/action-items',
+    GET: (id) => `/action-items/${id}`,
+    UPDATE: (id) => `/action-items/${id}`,
+    UPDATE_STATUS: (id) => `/action-items/${id}/status`,
+    DELETE: (id) => `/action-items/${id}`,
+    OVERDUE: '/action-items/overdue',
+  },
+  ANALYTICS: {
+    DASHBOARD: '/analytics/dashboard',
+    MEETINGS: '/analytics/meetings',
+    ACTIONS: '/analytics/actions',
+  },
+  NOTIFICATIONS: {
+    LIST: '/notifications',
+    READ: (id) => `/notifications/${id}/read`,
+    READ_ALL: '/notifications/read-all',
+  },
+  SETTINGS: {
+    UPDATE_PREFERENCES: '/auth/preferences',
+  },
+  EVALUATION: '/evaluation',
+};
