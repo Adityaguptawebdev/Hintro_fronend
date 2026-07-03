@@ -7,6 +7,7 @@ export const ENDPOINTS = {
     ME: '/auth/me',
     CHANGE_PASSWORD: '/auth/change-password',
     UPDATE_PREFERENCES: '/auth/preferences',
+    GOOGLE: '/auth/google',
   },
   MEETINGS: {
     LIST: '/meetings',

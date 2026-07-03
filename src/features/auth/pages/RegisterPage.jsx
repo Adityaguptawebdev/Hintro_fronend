@@ -5,6 +5,11 @@ import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { register as registerUser } from '../services/auth.service';
 import { useAuthStore } from '../../../store/auth.store';
+import { ENDPOINTS } from '@/api/endpoints';
+import GoogleIcon from '@/components/ui/GoogleIcon';
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+const startGoogleOAuth = () => { window.location.href = `${API_BASE}${ENDPOINTS.AUTH.GOOGLE}`; };
 
 export default function RegisterPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -99,6 +104,21 @@ export default function RegisterPage() {
           <a className="text-[#9f9fa9] underline cursor-pointer">Privacy Policy</a>.
         </p>
       </form>
+
+      <div className="flex items-center gap-3">
+        <div className="flex-1 h-px bg-white/[0.07]" />
+        <span className="text-[#9f9fa9] text-xs">or continue with</span>
+        <div className="flex-1 h-px bg-white/[0.07]" />
+      </div>
+
+      <button
+        type="button"
+        onClick={startGoogleOAuth}
+        className="flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 rounded-xl py-2.5 text-sm font-medium text-[#9f9fa9] hover:text-white transition-all"
+      >
+        <GoogleIcon />
+        Continue with Google
+      </button>
 
       <p className="text-center text-sm text-[#9f9fa9]">
         Already have an account?{' '}

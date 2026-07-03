@@ -6,6 +6,7 @@ import AuthLayout from '../layouts/AuthLayout';
 import LandingPage from '../pages/Landing/LandingPage';
 import LoginPage from '../features/auth/pages/LoginPage';
 import RegisterPage from '../features/auth/pages/RegisterPage';
+import OAuthCallbackPage from '../features/auth/pages/OAuthCallbackPage';
 import DashboardPage from '../features/dashboard/pages/DashboardPage';
 import MeetingsPage from '../features/meetings/pages/MeetingsPage';
 import MeetingDetailPage from '../features/meetings/pages/MeetingDetailPage';
@@ -27,6 +28,9 @@ const AppRouter = () => (
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
     </Route>
+
+    {/* OAuth redirect target — standalone, no layout */}
+    <Route path="/oauth/callback" element={<OAuthCallbackPage />} />
 
     {/* Protected app routes */}
     <Route element={<PrivateRoute />}>
