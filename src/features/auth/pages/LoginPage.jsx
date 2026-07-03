@@ -2,6 +2,11 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Mail, Lock, ArrowRight } from 'lucide-react';
 import { useLogin } from '../hooks/useLogin';
+import { ENDPOINTS } from '@/api/endpoints';
+import GoogleIcon from '@/components/ui/GoogleIcon';
+
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+const startGoogleOAuth = () => { window.location.href = `${API_BASE}${ENDPOINTS.AUTH.GOOGLE}`; };
 
 export default function LoginPage() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -66,13 +71,14 @@ export default function LoginPage() {
         <div className="flex-1 h-px bg-white/[0.07]" />
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
-        {['Google', 'GitHub'].map((p) => (
-          <button key={p} className="flex items-center justify-center bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 rounded-xl py-2.5 text-sm font-medium text-[#9f9fa9] hover:text-white transition-all">
-            {p}
-          </button>
-        ))}
-      </div>
+      <button
+        type="button"
+        onClick={startGoogleOAuth}
+        className="flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 rounded-xl py-2.5 text-sm font-medium text-[#9f9fa9] hover:text-white transition-all"
+      >
+        <GoogleIcon />
+        Continue with Google
+      </button>
 
       <p className="text-center text-sm text-[#9f9fa9]">
         Don't have an account?{' '}
