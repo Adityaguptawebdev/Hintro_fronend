@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Bell, Check, ExternalLink } from 'lucide-react';
+import { Bell, Check, ExternalLink, Menu } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNotificationStore } from '@/store/notification.store';
+import { useUIStore } from '@/store/ui.store';
 import { useNotifications, useMarkNotificationRead } from '@/features/notifications/hooks/useNotifications';
 import { timeAgo } from '@/utils/date.utils';
 import { cn } from '@/utils/cn';
@@ -23,6 +24,7 @@ export default function Topbar() {
   const unreadCount = useNotificationStore((s) => s.unreadCount);
   const notifications = useNotificationStore((s) => s.notifications);
   const prevUnreadRef = useRef(unreadCount);
+  const toggleSidebar = useUIStore((s) => s.toggleSidebar);
 
   // Poll every 30 s
   useNotifications({ limit: 20 }, { refetchInterval: 30_000 });
@@ -69,7 +71,18 @@ export default function Topbar() {
   const hasUnread = unreadCount > 0;
 
   return (
-    <header className="relative z-50 h-14 shrink-0 border-b border-white/[0.06] bg-zinc-900/80 backdrop-blur-md flex items-center justify-end px-6 gap-3 overflow-visible">
+    <header className="relative z-50 h-14 shrink-0 border-b border-white/[0.06] bg-zinc-900/80 backdrop-blur-md flex items-center justify-between lg:justify-end px-4 sm:px-6 gap-3 overflow-visible">
+      {/* Mobile: hamburger + logo */}
+      <div className="flex items-center gap-3 lg:hidden">
+        <button
+          onClick={toggleSidebar}
+          className="size-10 rounded-xl flex items-center justify-center text-[#9f9fa9] hover:bg-zinc-800 hover:text-neutral-50 transition-colors"
+        >
+          <Menu className="size-5" />
+        </button>
+        <span className="font-bold text-base tracking-tight text-neutral-50">Hintro</span>
+      </div>
+
       {/* Notification bell */}
       <div className="relative" ref={dropdownRef}>
         <button
@@ -95,7 +108,7 @@ export default function Topbar() {
             {/* Backdrop */}
             <div className="fixed inset-0 z-[90]" onClick={() => setOpen(false)} />
 
-            <div className="absolute right-0 top-[calc(100%+8px)] w-[420px] rounded-2xl bg-zinc-900 border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.7)] z-[100] overflow-hidden">
+            <div className="fixed sm:absolute left-4 right-4 sm:left-auto sm:right-0 top-16 sm:top-[calc(100%+8px)] w-auto sm:w-[420px] max-w-[420px] mx-auto sm:mx-0 rounded-2xl bg-zinc-900 border border-white/10 shadow-[0_24px_64px_rgba(0,0,0,0.7)] z-[100] overflow-hidden">
               {/* Header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.07]">
                 <span className="font-semibold text-sm">Notifications</span>

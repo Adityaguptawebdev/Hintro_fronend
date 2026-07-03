@@ -126,10 +126,10 @@ export default function TranscriptPage() {
   const showUploadForm = !isLoading && (!transcript || editing);
 
   return (
-    <div className="p-8 flex flex-col gap-6 min-h-screen">
+    <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-6 min-h-screen">
 
       {/* Header */}
-      <div className="flex items-center justify-between gap-4 flex-wrap">
+      <div className="flex items-start sm:items-center justify-between gap-4 flex-wrap">
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate(`/meetings/${meetingId}`)}

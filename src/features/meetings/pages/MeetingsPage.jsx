@@ -13,8 +13,8 @@ const MeetingsPage = () => {
   const { data, isLoading } = useMeetings(filters);
 
   return (
-    <div className="p-8 flex flex-col gap-6 min-h-screen">
-      <div className="flex items-center justify-between">
+    <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-6 min-h-screen">
+      <div className="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <h1 className="text-xl font-bold text-neutral-50">Meetings</h1>
           <p className="text-sm text-[#9f9fa9]">{data?.pagination?.total ?? 0} total meetings</p>

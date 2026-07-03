@@ -79,19 +79,19 @@ export default function ActionItemsPage() {
       : grouped;
 
   return (
-    <div className="p-8 flex flex-col gap-6 min-h-screen">
+    <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-6 min-h-screen">
       {/* Header */}
-      <header className="flex justify-between items-start">
+      <header className="flex justify-between items-start gap-3 flex-wrap">
         <div className="flex flex-col gap-1">
-          <h1 className="font-bold text-3xl tracking-tight">Action Items</h1>
+          <h1 className="font-bold text-2xl sm:text-3xl tracking-tight">Action Items</h1>
           <p className="text-[#9f9fa9] text-sm">Track, assign, and close tasks extracted from your meetings.</p>
         </div>
         <Badge className="bg-primary/15 text-primary text-sm px-3 py-1">{allItems.length} total</Badge>
       </header>
 
       {/* Filters */}
-      <div className="flex flex-wrap items-center gap-4">
-        <div className="relative w-64">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+        <div className="relative w-full sm:w-64">
           <Search className="size-4 top-1/2 -translate-y-1/2 text-[#9f9fa9] absolute left-3" />
           <Input className="bg-zinc-900 border-white/10 pl-9" placeholder="Search tasks..." />
         </div>
@@ -139,7 +139,7 @@ export default function ActionItemsPage() {
 
       {/* Kanban */}
       {!isLoading && viewMode === 'kanban' && (
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(COLUMN_META).map(([status, { label, topColor }]) => {
             const cards = kanbanItems[status] ?? [];
             return (
@@ -199,39 +199,41 @@ export default function ActionItemsPage() {
 
       {/* Table */}
       {!isLoading && viewMode === 'table' && (
-        <div className="rounded-xl bg-zinc-900 border border-white/10 flex flex-col overflow-hidden">
-          <div className="grid grid-cols-[2fr_1fr_1fr_0.8fr_1.2fr_1fr] font-medium text-[#9f9fa9] text-xs border-b border-white/10 px-4 py-3 gap-4">
-            <span>Task</span><span>Assignee</span><span>Priority</span><span>Due Date</span><span>Status</span><span>Action</span>
-          </div>
-          {filtered.length === 0 && (
-            <div className="text-center py-10 text-[#9f9fa9] text-sm">No action items match this filter.</div>
-          )}
-          {filtered.map((item, i) => (
-            <div key={item._id} className={`grid grid-cols-[2fr_1fr_1fr_0.8fr_1.2fr_1fr] text-sm px-4 py-3 items-center gap-4 ${i % 2 === 0 ? 'bg-zinc-950/40' : ''} hover:bg-zinc-800/30 transition-colors`}>
-              <span className={`font-medium ${item.status === 'completed' ? 'line-through text-[#9f9fa9]' : ''}`}>{item.title}</span>
-              <div className="flex items-center gap-2">
-                <div className={`size-6 font-semibold rounded-full ${avatarColor(item._id)} text-[10px] flex justify-center items-center text-white`}>
-                  {avatarInitials(item)}
-                </div>
-                <span className="text-[#9f9fa9] text-xs truncate">{item.assignee?.name ?? item.assignee?.email ?? '—'}</span>
-              </div>
-              <Badge className={`${priorityClass(item.priority)} text-[10px] w-fit border-0`}>{item.priority}</Badge>
-              <span className={`text-xs ${item.isOverdue ? 'text-[#ff6467]' : 'text-[#9f9fa9]'}`}>
-                {item.dueDate ? formatDate(item.dueDate, 'MMM d') : '—'}
-              </span>
-              <Badge className={`${statusClass(item.status)} text-[10px] w-fit border-0`}>{statusLabel(item.status)}</Badge>
-              {item.status !== 'completed' ? (
-                <button
-                  onClick={() => updateStatus({ id: item._id, status: item.status === 'pending' ? 'in_progress' : 'completed' })}
-                  className="text-xs text-primary hover:underline text-left"
-                >
-                  {item.status === 'pending' ? 'Start →' : 'Complete ✓'}
-                </button>
-              ) : (
-                <CheckCircle2 className="size-4 text-[#00bc7d]" />
-              )}
+        <div className="rounded-xl bg-zinc-900 border border-white/10 flex flex-col overflow-x-auto">
+          <div className="min-w-[640px]">
+            <div className="grid grid-cols-[2fr_1fr_1fr_0.8fr_1.2fr_1fr] font-medium text-[#9f9fa9] text-xs border-b border-white/10 px-4 py-3 gap-4">
+              <span>Task</span><span>Assignee</span><span>Priority</span><span>Due Date</span><span>Status</span><span>Action</span>
             </div>
-          ))}
+            {filtered.length === 0 && (
+              <div className="text-center py-10 text-[#9f9fa9] text-sm">No action items match this filter.</div>
+            )}
+            {filtered.map((item, i) => (
+              <div key={item._id} className={`grid grid-cols-[2fr_1fr_1fr_0.8fr_1.2fr_1fr] text-sm px-4 py-3 items-center gap-4 ${i % 2 === 0 ? 'bg-zinc-950/40' : ''} hover:bg-zinc-800/30 transition-colors`}>
+                <span className={`font-medium truncate ${item.status === 'completed' ? 'line-through text-[#9f9fa9]' : ''}`}>{item.title}</span>
+                <div className="flex items-center gap-2 min-w-0">
+                  <div className={`size-6 font-semibold rounded-full ${avatarColor(item._id)} text-[10px] flex justify-center items-center text-white shrink-0`}>
+                    {avatarInitials(item)}
+                  </div>
+                  <span className="text-[#9f9fa9] text-xs truncate">{item.assignee?.name ?? item.assignee?.email ?? '—'}</span>
+                </div>
+                <Badge className={`${priorityClass(item.priority)} text-[10px] w-fit border-0`}>{item.priority}</Badge>
+                <span className={`text-xs ${item.isOverdue ? 'text-[#ff6467]' : 'text-[#9f9fa9]'}`}>
+                  {item.dueDate ? formatDate(item.dueDate, 'MMM d') : '—'}
+                </span>
+                <Badge className={`${statusClass(item.status)} text-[10px] w-fit border-0`}>{statusLabel(item.status)}</Badge>
+                {item.status !== 'completed' ? (
+                  <button
+                    onClick={() => updateStatus({ id: item._id, status: item.status === 'pending' ? 'in_progress' : 'completed' })}
+                    className="text-xs text-primary hover:underline text-left"
+                  >
+                    {item.status === 'pending' ? 'Start →' : 'Complete ✓'}
+                  </button>
+                ) : (
+                  <CheckCircle2 className="size-4 text-[#00bc7d]" />
+                )}
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

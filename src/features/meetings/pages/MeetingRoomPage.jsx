@@ -259,7 +259,7 @@ export default function MeetingRoomPage() {
 
       {/* Transcript panel */}
       {transcriptOpen && (
-        <div className="w-80 shrink-0 bg-zinc-900 border-l border-white/[0.07] flex flex-col">
+        <div className="fixed inset-0 z-40 lg:static lg:inset-auto w-full lg:w-80 shrink-0 bg-zinc-900 border-l border-white/[0.07] flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.07]">
             <div className="flex items-center gap-2">
