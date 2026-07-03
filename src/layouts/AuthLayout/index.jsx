@@ -56,7 +56,7 @@ export default function AuthLayout() {
       </div>
 
       {/* Right form panel */}
-      <div className="flex flex-1 items-center justify-center p-8 relative z-10">
+      <div className="flex flex-1 items-center justify-center p-6 sm:p-8 relative z-10">
         <div className="w-full max-w-[400px]">
           <div className="flex lg:hidden items-center mb-10">
             <span className="font-bold text-lg tracking-tight">Hintro</span>

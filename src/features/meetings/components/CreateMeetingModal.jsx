@@ -31,19 +31,19 @@ const CreateMeetingModal = ({ open, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative z-10 w-full max-w-md rounded-2xl bg-zinc-900 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
+      <div className="relative z-10 w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl bg-zinc-900 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
 
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+        <div className="flex items-center justify-between border-b border-white/10 px-4 sm:px-6 py-4">
           <h2 className="text-base font-semibold text-neutral-50">Schedule a Meeting</h2>
           <button
             onClick={onClose}
-            className="size-7 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-[#9f9fa9] hover:text-neutral-50 transition-colors text-sm"
+            className="size-7 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-[#9f9fa9] hover:text-neutral-50 transition-colors text-sm shrink-0"
           >
             ✕
           </button>
         </div>
 
-        <form className="px-6 py-5 flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <form className="px-4 sm:px-6 py-5 flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
 
           {/* Title */}
           <div className="flex flex-col gap-1.5">

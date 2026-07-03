@@ -73,10 +73,10 @@ export default function SettingsPage() {
   };
 
   return (
-    <div className="overflow-y-auto p-8 flex flex-col gap-10 min-h-screen max-w-2xl">
+    <div className="overflow-y-auto p-4 sm:p-6 md:p-8 flex flex-col gap-10 min-h-screen max-w-2xl">
       {/* Page header */}
       <header>
-        <h1 className="font-bold text-3xl tracking-tight">Settings</h1>
+        <h1 className="font-bold text-2xl sm:text-3xl tracking-tight">Settings</h1>
         <p className="text-[#9f9fa9] text-sm mt-1">Manage your notification preferences and integrations.</p>
       </header>
 
@@ -222,7 +222,7 @@ export default function SettingsPage() {
         <SectionHeading>Reminder Timing</SectionHeading>
         <Card className="bg-zinc-900/60 backdrop-blur-md border-white/10">
           <CardContent className="p-5 flex flex-col gap-4">
-            <div className="flex items-start justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-start justify-between gap-3 sm:gap-6">
               <div className="flex-1">
                 <p className="font-semibold text-sm">Meeting reminder lead time</p>
                 <p className="text-xs text-[#9f9fa9] mt-1">How far in advance to send a reminder before a meeting starts.</p>
@@ -230,7 +230,7 @@ export default function SettingsPage() {
               <select
                 value={leadTime}
                 onChange={(e) => setLeadTime(e.target.value)}
-                className="shrink-0 h-9 rounded-lg bg-zinc-800 border border-white/10 text-sm text-neutral-50 px-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary/50 appearance-none cursor-pointer"
+                className="w-full sm:w-auto shrink-0 h-9 rounded-lg bg-zinc-800 border border-white/10 text-sm text-neutral-50 px-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary/50 appearance-none cursor-pointer"
                 style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239f9fa9' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 10px center' }}
               >
                 {LEAD_TIME_OPTIONS.map((opt) => (

@@ -53,9 +53,9 @@ export default function RemindersPage() {
   ];
 
   return (
-    <div className="overflow-y-auto p-8 flex flex-col gap-8 min-h-screen">
+    <div className="overflow-y-auto p-4 sm:p-6 md:p-8 flex flex-col gap-8 min-h-screen">
       <header className="flex flex-col gap-1">
-        <h1 className="font-bold text-3xl tracking-tight">Reminders</h1>
+        <h1 className="font-bold text-2xl sm:text-3xl tracking-tight">Reminders</h1>
         <p className="text-[#9f9fa9] text-sm">Automated follow-ups and smart reminders delivered to your team.</p>
       </header>
 
@@ -122,8 +122,8 @@ export default function RemindersPage() {
                     <div className="size-9 shrink-0 rounded-full bg-[#229ED9]/20 flex justify-center items-center">
                       <Bot className="size-5 text-[#3BB3E8]" />
                     </div>
-                    <div className="flex flex-col flex-1 gap-2">
-                      <div className="flex items-center gap-2">
+                    <div className="flex flex-col flex-1 gap-2 min-w-0">
+                      <div className="flex items-center gap-2 flex-wrap">
                         <span className="font-semibold text-sm">{notif.title}</span>
                         <Badge className={`${cls} text-[10px] border-0`}>{label}</Badge>
                         <span className="text-[#9f9fa9] text-xs ml-auto">{timeAgo(notif.createdAt)}</span>

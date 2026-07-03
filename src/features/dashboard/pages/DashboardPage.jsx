@@ -82,14 +82,14 @@ export default function DashboardPage() {
     : [{ d: 'W1', meetings: 0, actions: 0 }];
 
   return (
-    <div className="p-8 flex flex-col gap-6">
+    <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-6">
       {/* Header */}
       <div className="flex items-center gap-4">
-        <div className="relative max-w-md flex-1">
+        <div className="relative flex-1 min-w-0 sm:max-w-md">
           <Search className="top-1/2 -translate-y-1/2 size-4 text-[#9f9fa9] absolute left-3.5" />
           <Input className="rounded-full bg-zinc-900 border-white/10 pl-10 h-11" placeholder="Search meetings, transcripts, insights..." />
         </div>
-        <div className="flex ml-auto items-center gap-3">
+        <div className="flex ml-auto items-center gap-3 shrink-0">
           <Avatar className="size-10 ring-2 ring-primary/40">
             <AvatarFallback className="bg-primary/20 text-primary text-sm font-semibold">{user?.name?.[0]?.toUpperCase() ?? 'U'}</AvatarFallback>
           </Avatar>
@@ -97,7 +97,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <h1 className="font-bold text-3xl tracking-tight">Good {greeting()}, {user?.name?.split(' ')[0] ?? 'there'}.<span className="text-primary">✦</span></h1>
+        <h1 className="font-bold text-2xl sm:text-3xl tracking-tight">Good {greeting()}, {user?.name?.split(' ')[0] ?? 'there'}.<span className="text-primary">✦</span></h1>
         <p className="text-[#9f9fa9] text-sm">
           {actionCounts.overdue > 0
             ? `${actionCounts.overdue} overdue action item${actionCounts.overdue > 1 ? 's' : ''} need attention.`
@@ -106,9 +106,9 @@ export default function DashboardPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
         {STATS.map(({ label, value, icon: Icon, trend, bg, color }) => (
-          <Card key={label} className="bg-zinc-900/70 border-white/10 p-5 gap-3">
+          <Card key={label} className="bg-zinc-900/70 border-white/10 p-4 sm:p-5 gap-3">
             <CardHeader className="p-0 flex-row justify-between items-center gap-0">
               <div className={`size-9 rounded-lg ${bg} flex justify-center items-center`}><Icon className={`size-[18px] ${color}`} /></div>
               {trend && <span className="text-emerald-400 font-medium text-xs flex items-center gap-0.5"><TrendingUp className="size-3" />{trend}</span>}
@@ -122,8 +122,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Bottom */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 bg-zinc-900 border-white/10 p-6 gap-4 flex flex-col">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+        <Card className="lg:col-span-2 bg-zinc-900 border-white/10 p-4 sm:p-6 gap-4 flex flex-col">
           <CardHeader className="p-0 flex-row justify-between items-center gap-0">
             <div className="flex flex-col gap-0.5">
               <CardTitle className="text-base">Recent Meetings</CardTitle>
@@ -147,14 +147,14 @@ export default function DashboardPage() {
                 className="rounded-xl bg-zinc-800/50 border border-white/10 p-4 flex flex-col gap-3 hover:bg-zinc-800/70 transition-colors cursor-pointer"
               >
                 <div className="flex justify-between items-start gap-2">
-                  <div className="flex flex-col gap-0.5">
-                    <span className="font-medium text-sm">{m.title}</span>
-                    <span className="text-[#9f9fa9] text-xs flex items-center gap-2">
+                  <div className="flex flex-col gap-0.5 min-w-0 flex-1">
+                    <span className="font-medium text-sm truncate">{m.title}</span>
+                    <span className="text-[#9f9fa9] text-xs flex items-center gap-2 flex-wrap">
                       <span className="flex items-center gap-1"><Calendar className="size-3" />{formatDateTime(m.scheduledAt)}</span>
                       {m.duration && <span className="flex items-center gap-1"><Clock className="size-3" />{formatDuration(m.duration)}</span>}
                     </span>
                   </div>
-                  <Badge className={`text-[10px] border-0 ${statusBadgeClass(m.status)}`}>{statusLabel(m.status)}</Badge>
+                  <Badge className={`text-[10px] border-0 shrink-0 ${statusBadgeClass(m.status)}`}>{statusLabel(m.status)}</Badge>
                 </div>
                 {m.description && <p className="text-[#9f9fa9] text-xs leading-relaxed line-clamp-2">{m.description}</p>}
                 <div className="flex items-center gap-2">
@@ -170,7 +170,7 @@ export default function DashboardPage() {
         </Card>
 
         <div className="flex flex-col gap-6">
-          <Card className="bg-zinc-900 border-white/10 p-6 gap-4 flex flex-col flex-1">
+          <Card className="bg-zinc-900 border-white/10 p-4 sm:p-6 gap-4 flex flex-col flex-1">
             <CardHeader className="p-0 gap-0.5">
               <CardTitle className="text-base flex items-center gap-2"><Sparkles className="size-4 text-primary" />AI Productivity</CardTitle>
               <CardDescription className="text-xs">Meetings over time</CardDescription>
@@ -192,7 +192,7 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
 
-          <Card className="bg-zinc-900 border-white/10 p-6 gap-3">
+          <Card className="bg-zinc-900 border-white/10 p-4 sm:p-6 gap-3">
             <CardHeader className="p-0 gap-0.5"><CardTitle className="text-sm">Action Item Completion</CardTitle></CardHeader>
             <CardContent className="relative flex p-0 justify-center items-center">
               <ChartContainer config={{ done: { label: 'Done', color: 'oklch(0.646 0.222 41.116)' }, left: { label: 'Left', color: 'oklch(0.769 0.188 70.08)' } }} className="w-[120px] h-[120px]">

@@ -86,11 +86,11 @@ export default function MeetingDetailPage() {
 
   if (meetingLoading) {
     return (
-      <div className="p-8 flex flex-col gap-6">
+      <div className="p-4 sm:p-6 md:p-8 flex flex-col gap-6">
         <div className="h-20 animate-pulse rounded-xl bg-zinc-800" />
-        <div className="flex gap-6" style={{ height: 'calc(100vh - 220px)' }}>
-          <div className="w-[55%] h-full animate-pulse rounded-xl bg-zinc-800" />
-          <div className="w-[45%] flex flex-col gap-4">
+        <div className="flex flex-col lg:flex-row gap-6 lg:h-[calc(100vh-220px)]">
+          <div className="w-full lg:w-[55%] h-64 lg:h-full animate-pulse rounded-xl bg-zinc-800" />
+          <div className="w-full lg:w-[45%] flex flex-col gap-4">
             {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-32 animate-pulse rounded-xl bg-zinc-800" />)}
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function MeetingDetailPage() {
   }
 
   return (
-    <div className="flex p-8 flex-col gap-6 min-h-screen">
+    <div className="flex p-4 sm:p-6 md:p-8 flex-col gap-6 min-h-screen">
       {/* Breadcrumb + header */}
       <div className="flex flex-col gap-2">
         <div className="text-[#9f9fa9] text-sm flex items-center gap-1">
@@ -157,10 +157,10 @@ export default function MeetingDetailPage() {
       </div>
 
       {/* Split content */}
-      <div className="flex flex-1 gap-6 overflow-hidden" style={{ height: 'calc(100vh - 220px)' }}>
+      <div className="flex flex-col lg:flex-row flex-1 gap-6 lg:overflow-hidden lg:h-[calc(100vh-220px)]">
         {/* Transcript panel */}
-        <div className="w-[55%] flex flex-col min-h-0">
-          <Card className="backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.3)] bg-zinc-900/60 border border-white/10 flex flex-col flex-1 gap-0 overflow-hidden p-0">
+        <div className="w-full lg:w-[55%] flex flex-col min-h-0">
+          <Card className="backdrop-blur-md shadow-[0_8px_30px_rgba(0,0,0,0.3)] bg-zinc-900/60 border border-white/10 flex flex-col flex-1 gap-0 overflow-hidden p-0 max-h-[70vh] lg:max-h-none">
             <div className="sticky z-10 backdrop-blur-md bg-zinc-900/80 border-b border-white/10 top-0 p-4">
               <div className="flex mb-3 justify-between items-center">
                 <h2 className="font-semibold text-sm flex items-center gap-2"><FileText className="size-4 text-primary" />Transcript</h2>
@@ -219,7 +219,7 @@ export default function MeetingDetailPage() {
         </div>
 
         {/* Analysis panel */}
-        <div className="w-[45%] overflow-y-auto flex flex-col gap-4 pr-1 scrollbar-hide">
+        <div className="w-full lg:w-[45%] overflow-y-auto flex flex-col gap-4 pr-1 scrollbar-hide">
           {/* AI Summary */}
           <Card className="backdrop-blur-md border-l-4 border-l-primary shadow-[0_0_24px_oklch(0.646_0.222_41.116/.18)] bg-zinc-900/60 border border-white/10 p-5 gap-3">
             <CardHeader className="p-0 gap-1">

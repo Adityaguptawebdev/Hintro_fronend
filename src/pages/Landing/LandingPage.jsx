@@ -24,8 +24,8 @@ export default function LandingPage() {
       </div>
 
       {/* ── Navbar ── */}
-      <nav className="relative z-20 flex items-center justify-between px-10 py-5">
-        <span className="font-bold text-xl tracking-tight">Hintro</span>
+      <nav className="relative z-20 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-5">
+        <span className="font-bold text-lg sm:text-xl tracking-tight">Hintro</span>
 
         <div className="hidden md:flex items-center gap-10">
           {['Product', 'Pricing', 'Docs', 'Blog'].map((item) => (
@@ -35,7 +35,7 @@ export default function LandingPage() {
 
         <button
           onClick={() => navigate('/register')}
-          className="bg-gradient-to-r from-amber-400/80 to-orange-600/80 text-white font-semibold text-sm px-6 py-2.5 rounded-full shadow-[0_0_12px_oklch(0.646_0.222_41.116/0.3)] hover:shadow-[0_0_16px_oklch(0.646_0.222_41.116/0.4)] transition-all active:scale-95"
+          className="bg-gradient-to-r from-amber-400/80 to-orange-600/80 text-white font-semibold text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-2.5 rounded-full shadow-[0_0_12px_oklch(0.646_0.222_41.116/0.3)] hover:shadow-[0_0_16px_oklch(0.646_0.222_41.116/0.4)] transition-all active:scale-95 whitespace-nowrap"
         >
           Get Early Access
         </button>
@@ -45,16 +45,16 @@ export default function LandingPage() {
       <div className="relative z-10 flex min-h-[calc(100vh-73px)]">
 
         {/* ── Main hero ── */}
-        <main className="flex flex-col items-center flex-1 pt-14 pb-24 px-6">
+        <main className="flex flex-col items-center flex-1 pt-10 sm:pt-14 pb-16 sm:pb-24 px-4 sm:px-6">
 
           {/* Badge */}
-          <div className="flex items-center gap-2 bg-white/[0.07] border border-white/10 backdrop-blur-sm rounded-full px-4 py-1.5 mb-8">
-            <Sparkles className="size-3.5 text-primary" />
-            <span className="text-primary font-medium text-xs">AI-Powered Meeting Intelligence</span>
+          <div className="flex items-center gap-2 bg-white/[0.07] border border-white/10 backdrop-blur-sm rounded-full px-3 sm:px-4 py-1.5 mb-6 sm:mb-8 text-center">
+            <Sparkles className="size-3.5 text-primary shrink-0" />
+            <span className="text-primary font-medium text-[11px] sm:text-xs">AI-Powered Meeting Intelligence</span>
           </div>
 
           {/* Hero headline */}
-          <h1 className="font-black text-center text-6xl lg:text-7xl leading-[1.0] tracking-tight mb-6 max-w-3xl">
+          <h1 className="font-black text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] sm:leading-[1.0] tracking-tight mb-5 sm:mb-6 max-w-3xl">
             Turn Every Meeting
             <br />Into Actionable
             <br />
@@ -64,31 +64,31 @@ export default function LandingPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-center text-[#9f9fa9] text-lg leading-relaxed max-w-lg mb-10">
+          <p className="text-center text-[#9f9fa9] text-base sm:text-lg leading-relaxed max-w-lg mb-8 sm:mb-10">
             Hintro transcribes, summarizes, and extracts decisions and action items
             from your meetings — automatically.
           </p>
 
           {/* CTA buttons */}
-          <div className="flex items-center gap-4 mb-16">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-14 sm:mb-16 w-full max-w-xs sm:w-auto sm:max-w-none">
             <button
               onClick={() => navigate('/register')}
-              className="flex items-center gap-2 bg-gradient-to-r from-amber-400/80 to-orange-600/80 text-white font-semibold px-7 py-3.5 rounded-full shadow-[0_0_12px_oklch(0.646_0.222_41.116/0.3)] hover:shadow-[0_0_16px_oklch(0.646_0.222_41.116/0.4)] transition-all active:scale-95 text-sm"
+              className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-400/80 to-orange-600/80 text-white font-semibold px-7 py-3.5 rounded-full shadow-[0_0_12px_oklch(0.646_0.222_41.116/0.3)] hover:shadow-[0_0_16px_oklch(0.646_0.222_41.116/0.4)] transition-all active:scale-95 text-sm"
             >
               <Rocket className="size-4" />
               Start for Free
             </button>
-            <button className="flex items-center gap-2 bg-white/[0.06] hover:bg-white/10 text-white border border-white/10 font-semibold px-7 py-3.5 rounded-full transition-all active:scale-95 text-sm">
+            <button className="flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/10 text-white border border-white/10 font-semibold px-7 py-3.5 rounded-full transition-all active:scale-95 text-sm">
               <Play className="size-4" />
               Watch Demo
             </button>
           </div>
 
           {/* ── Transcript card + floating badges ── */}
-          <div className="relative w-full max-w-xl">
+          <div className="relative w-full max-w-xl mt-6 sm:mt-0">
 
             {/* Floating badge — top left */}
-            <div className="absolute -left-4 lg:-left-16 -top-10 rotate-[-5deg] z-10">
+            <div className="hidden sm:block absolute -left-4 lg:-left-16 -top-10 rotate-[-5deg] z-10">
               <div className="flex items-center gap-2.5 bg-[#1a1008]/90 border-l-2 border-l-primary border border-white/10 backdrop-blur-xl rounded-xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] whitespace-nowrap">
                 <Brain className="size-5 text-primary shrink-0" />
                 <span className="font-medium text-sm text-white">AI Summary Ready</span>
@@ -96,15 +96,27 @@ export default function LandingPage() {
             </div>
 
             {/* Floating badge — top right */}
-            <div className="absolute -right-4 lg:-right-16 -top-8 rotate-[5deg] z-10">
+            <div className="hidden sm:block absolute -right-4 lg:-right-16 -top-8 rotate-[5deg] z-10">
               <div className="flex items-center gap-2.5 bg-[#1a1008]/90 border-l-2 border-l-[oklch(0.769_0.188_70.08)] border border-white/10 backdrop-blur-xl rounded-xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] whitespace-nowrap">
                 <CheckCircle2 className="size-5 text-[oklch(0.769_0.188_70.08)] shrink-0" />
                 <span className="font-medium text-sm text-white">4 Action Items Extracted</span>
               </div>
             </div>
 
+            {/* Mobile-only compact badge row */}
+            <div className="flex sm:hidden items-center justify-center gap-2 mb-4 flex-wrap">
+              <div className="flex items-center gap-1.5 bg-[#1a1008]/90 border-l-2 border-l-primary border border-white/10 rounded-lg px-2.5 py-1.5">
+                <Brain className="size-3.5 text-primary shrink-0" />
+                <span className="font-medium text-[11px] text-white">AI Summary Ready</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-[#1a1008]/90 border-l-2 border-l-[oklch(0.769_0.188_70.08)] border border-white/10 rounded-lg px-2.5 py-1.5">
+                <CheckCircle2 className="size-3.5 text-[oklch(0.769_0.188_70.08)] shrink-0" />
+                <span className="font-medium text-[11px] text-white">4 Actions Extracted</span>
+              </div>
+            </div>
+
             {/* Transcript card */}
-            <div className="bg-[oklch(0.18_0.006_285.885/.7)] backdrop-blur-xl border border-white/[0.09] rounded-2xl p-5 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
+            <div className="bg-[oklch(0.18_0.006_285.885/.7)] backdrop-blur-xl border border-white/[0.09] rounded-2xl p-4 sm:p-5 shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
               {/* Window chrome */}
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-1.5">
@@ -140,11 +152,17 @@ export default function LandingPage() {
             </div>
 
             {/* Floating badge — bottom right */}
-            <div className="absolute -right-4 lg:-right-10 -bottom-10 rotate-[-4deg] z-10">
+            <div className="hidden sm:block absolute -right-4 lg:-right-10 -bottom-10 rotate-[-4deg] z-10">
               <div className="flex items-center gap-2.5 bg-[#1a1008]/90 border-l-2 border-l-primary border border-white/10 backdrop-blur-xl rounded-xl px-4 py-3 shadow-[0_8px_32px_rgba(0,0,0,0.5)] whitespace-nowrap">
                 <CalendarCheck className="size-5 text-primary shrink-0" />
                 <span className="font-medium text-sm text-white">Follow-up Scheduled — Friday 3PM</span>
               </div>
+            </div>
+
+            {/* Mobile-only bottom badge */}
+            <div className="flex sm:hidden items-center justify-center gap-1.5 mt-4 bg-[#1a1008]/90 border-l-2 border-l-primary border border-white/10 rounded-lg px-2.5 py-1.5 w-fit mx-auto">
+              <CalendarCheck className="size-3.5 text-primary shrink-0" />
+              <span className="font-medium text-[11px] text-white">Follow-up Scheduled — Fri 3PM</span>
             </div>
           </div>
         </main>

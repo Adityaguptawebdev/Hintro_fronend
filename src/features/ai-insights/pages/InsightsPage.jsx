@@ -26,7 +26,7 @@ const typeLabel = (type) => ({
   sentiment: 'Sentiment',
 }[type] ?? type);
 
-const cardOffset = ['', 'translate-y-4', '', 'translate-y-4'];
+const cardOffset = ['', 'sm:translate-y-4', '', 'sm:translate-y-4'];
 
 export default function InsightsPage() {
   const { id } = useParams();
@@ -53,9 +53,9 @@ export default function InsightsPage() {
     .slice(0, 3);
 
   return (
-    <div className="relative p-8 flex flex-col gap-6 min-h-screen bg-[radial-gradient(ellipse_60%_45%_at_50%_0%,oklch(0.646_0.222_41.116/.18),transparent_70%)]">
+    <div className="relative p-4 sm:p-6 md:p-8 flex flex-col gap-6 min-h-screen bg-[radial-gradient(ellipse_60%_45%_at_50%_0%,oklch(0.646_0.222_41.116/.18),transparent_70%)]">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-3 flex-wrap">
         <div className="flex flex-col gap-1">
           <h1 className="font-semibold text-2xl tracking-tight">AI Analysis</h1>
           <p className="text-[#9f9fa9] text-sm">
@@ -161,7 +161,7 @@ export default function InsightsPage() {
           </div>
 
           {insightsLoading ? (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Array.from({ length: 4 }).map((_, i) => <div key={i} className="h-28 animate-pulse rounded-xl bg-zinc-800" />)}
             </div>
           ) : insights.length === 0 ? (
@@ -170,7 +170,7 @@ export default function InsightsPage() {
               <p className="text-[#9f9fa9] text-sm">Insights will appear here after analysis.</p>
             </div>
           ) : (
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {insights.slice(0, 4).map((insight, i) => (
                 <Card key={insight._id} className={`backdrop-blur-md bg-zinc-900/60 border-white/10 p-4 gap-2 ${cardOffset[i] ?? ''}`}>
                   <CardHeader className="p-0 flex-row justify-between items-start gap-1">
