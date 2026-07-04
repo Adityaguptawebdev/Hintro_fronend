@@ -4,6 +4,8 @@ AI-powered Meeting Intelligence Platform — React 19 · Vite · Tailwind CSS.
 
 The client for Hintro: schedule and run meetings, upload or record transcripts, generate citation-backed AI summaries/insights/action items, and manage reminders — with email/password or Google (via Auth0) sign-in.
 
+**Live demo:** https://hintro-fronend-b2iz.vercel.app/
+
 ## Architecture (LLD)
 
 <img src="docs/images/architecture.svg" alt="Frontend component and data-flow architecture" width="100%">
@@ -15,11 +17,27 @@ Feature-based structure: each feature in `src/features/<feature>/` owns its page
 <table>
   <tr>
     <td width="50%"><img src="docs/images/screenshot-landing.png" alt="Landing page"></td>
-    <td width="50%"><img src="docs/images/screenshot-login.png" alt="Login page"></td>
+    <td width="50%"><img src="docs/images/screenshot-register.png" alt="Register page"></td>
   </tr>
   <tr>
     <td align="center"><sub>Landing page</sub></td>
-    <td align="center"><sub>Login — email/password or Google</sub></td>
+    <td align="center"><sub>Register — email/password or Google</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/images/screenshot-dashboard.png" alt="Dashboard"></td>
+    <td width="50%"><img src="docs/images/screenshot-meetings.png" alt="Meetings list"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Dashboard</sub></td>
+    <td align="center"><sub>Meetings</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/images/screenshot-action-items.png" alt="Action Items kanban board"></td>
+    <td width="50%"><img src="docs/images/screenshot-reminders.png" alt="Reminders and notification channels"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Action Items (kanban)</sub></td>
+    <td align="center"><sub>Reminders</sub></td>
   </tr>
 </table>
 
