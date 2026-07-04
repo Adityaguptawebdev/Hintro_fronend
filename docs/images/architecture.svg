@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f97316"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="620" fill="#0d0d0d"/>
+  <text x="450" y="34" text-anchor="middle" fill="#f5f5f5" font-size="20" font-weight="700">Hintro Frontend — Component &amp; Data-Flow Architecture</text>
+
+  <!-- Pages/Features -->
+  <rect x="60" y="60" width="780" height="60" rx="10" fill="#1c1c1e" stroke="#f97316" stroke-width="1.5"/>
+  <text x="450" y="86" text-anchor="middle" fill="#f5f5f5" font-size="13" font-weight="700">Pages / Features (feature-based)</text>
+  <text x="450" y="105" text-anchor="middle" fill="#9f9fa9" font-size="10.5">auth · dashboard · meetings · transcript · ai-insights · action-items · reminders · settings</text>
+
+  <line x1="450" y1="120" x2="450" y2="144" stroke="#f97316" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Layer: hooks / stores -->
+  <rect x="60" y="146" width="380" height="56" rx="10" fill="#1c1c1e" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="250" y="170" text-anchor="middle" fill="#f5f5f5" font-size="12.5" font-weight="700">TanStack Query hooks</text>
+  <text x="250" y="188" text-anchor="middle" fill="#9f9fa9" font-size="10.5">server cache · refetch · optimistic updates</text>
+
+  <rect x="460" y="146" width="380" height="56" rx="10" fill="#1c1c1e" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="650" y="170" text-anchor="middle" fill="#f5f5f5" font-size="12.5" font-weight="700">Zustand stores</text>
+  <text x="650" y="188" text-anchor="middle" fill="#9f9fa9" font-size="10.5">auth (persisted) · notifications · ui</text>
+
+  <line x1="250" y1="202" x2="250" y2="228" stroke="#f97316" stroke-width="2" marker-end="url(#arrow3)"/>
+  <line x1="650" y1="202" x2="450" y2="228" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+  <!-- axios + interceptors -->
+  <rect x="140" y="230" width="620" height="60" rx="10" fill="#1c1c1e" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="450" y="255" text-anchor="middle" fill="#f5f5f5" font-size="13" font-weight="700">Axios instance + interceptors</text>
+  <text x="450" y="274" text-anchor="middle" fill="#9f9fa9" font-size="10.5">attaches Bearer token · silent refresh-on-401 · logout on refresh failure</text>
+
+  <line x1="450" y1="290" x2="450" y2="316" stroke="#f97316" stroke-width="2" marker-end="url(#arrow3)"/>
+
+  <!-- Backend -->
+  <rect x="300" y="318" width="300" height="52" rx="10" fill="#1c1c1e" stroke="#00bc7d" stroke-width="1.5"/>
+  <text x="450" y="349" text-anchor="middle" fill="#f5f5f5" font-size="13" font-weight="700">Hintro Backend API</text>
+
+  <!-- Routing / layout -->
+  <text x="450" y="410" text-anchor="middle" fill="#9f9fa9" font-size="12" font-weight="700" letter-spacing="1">ROUTING &amp; LAYOUT</text>
+
+  <g font-size="11.5" fill="#f5f5f5" font-weight="600">
+    <rect x="60" y="426" width="240" height="48" rx="9" fill="#1c1c1e" stroke="#f97316"/>
+    <text x="180" y="455" text-anchor="middle">PrivateRoute (JWT guard)</text>
+
+    <rect x="330" y="426" width="240" height="48" rx="9" fill="#1c1c1e" stroke="#f97316"/>
+    <text x="450" y="455" text-anchor="middle">DashboardLayout</text>
+    <text x="450" y="468" text-anchor="middle" font-size="9.5" font-weight="400" fill="#9f9fa9">Sidebar (drawer on mobile) + Topbar</text>
+
+    <rect x="600" y="426" width="240" height="48" rx="9" fill="#1c1c1e" stroke="#f97316"/>
+    <text x="720" y="455" text-anchor="middle">AuthLayout</text>
+  </g>
+
+  <!-- UI primitives -->
+  <rect x="180" y="500" width="540" height="50" rx="10" fill="#1c1008" stroke="#f97316" stroke-width="1"/>
+  <text x="450" y="522" text-anchor="middle" fill="#f97316" font-size="12" font-weight="700">Shared UI primitives</text>
+  <text x="450" y="540" text-anchor="middle" fill="#9f9fa9" font-size="10.5">Card · Button · Badge · Input · Modal · Chart (Recharts) — src/components/ui</text>
+
+  <!-- footer -->
+  <text x="450" y="586" text-anchor="middle" fill="#9f9fa9" font-size="11">React 19 · Vite · React Router v7 · Tailwind CSS · Framer Motion</text>
+</svg>
